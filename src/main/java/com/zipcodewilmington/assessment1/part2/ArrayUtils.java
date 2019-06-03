@@ -1,5 +1,9 @@
 package com.zipcodewilmington.assessment1.part2;
-import  java.util.Arrays;
+import  java.lang.Object;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by leon on 2/16/18.
@@ -29,9 +33,17 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        Object [] objects = new Object[objectArray.length];
+        Integer counter = 0;
+        Integer [] arr = new Integer[objectArray.length];
+        for (Object o : objectArray
+             ) {
+            if (!o.equals(objectToRemove)) {
+                arr[counter] = (Integer) o;
+                counter++;
+            }
+        }
 
-        return objects;
+        return arr;
     }
 
     /**
@@ -40,7 +52,8 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-        return ArrayUtils.getLeastCommon(objectArray);
+
+        return null;
     }
 
 
@@ -50,7 +63,7 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-        return ArrayUtils.getMostCommon(objectArray);
+        return null;
     }
 
     /**
@@ -60,6 +73,26 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        return null;
+
+//        ArrayList <Object> merged = new ArrayList<>();
+//        for (int i = 0; i <objectArray.length ; i++) {
+//            merged.add(objectArray[i]);
+//        }
+//        for (int i = 0; i <objectArrayToAdd.length; i++) {
+//            merged.add(objectArray[i]);
+//        }
+//        Integer [] result = new Integer[merged.size()];
+//        for (int i = 0; i < merged.size() ; i++) {
+//            result[i] = (Integer) merged.get(i);
+//        }
+        Integer[] result = new Integer[objectArray.length + objectArrayToAdd.length];
+        int counter = 0;
+        for (int i = 0; i < objectArray.length ; i++) {
+            result[counter] = (Integer) objectArray[i];
+            counter++;
+        }
+
+        return result;
+
     }
 }
