@@ -55,8 +55,27 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-            Integer [] arr = new Integer[objectArray.length];
-        return null;
+        Arrays.sort(objectArray);
+        int currCount = 1;
+        int maxCount = 1;
+        Object result = objectArray[0];
+        for (int i = 1; i < objectArray.length ; i++) {
+            if(objectArray[i].equals(objectArray[i-1]))    {
+                currCount++;
+            }else {
+                if (currCount > maxCount) {
+                    maxCount = currCount;
+                    result = objectArray[i-1];
+                }
+                currCount = 1;
+            }
+        }
+        if (currCount > maxCount) {
+            maxCount = currCount;
+            result = objectArray[objectArray.length - 1];
+        }
+
+        return result;
     }
 
 
@@ -66,7 +85,27 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-        return null;
+        Arrays.sort(objectArray);
+        int currCount = 0;
+        int minCount = 0;
+        Object result = objectArray[0];
+        for (int i = 1; i < objectArray.length ; i++) {
+            if(objectArray[i].equals(objectArray[i-1]))    {
+                currCount++;
+            }else {
+                if (currCount > minCount) {
+                    minCount = currCount;
+                    result = objectArray[i-1];
+                }
+                currCount = 0;
+            }
+        }
+        if (currCount < minCount) {
+            minCount = currCount;
+            result = objectArray[objectArray.length - 1];
+        }
+
+        return result;
     }
 
     /**
