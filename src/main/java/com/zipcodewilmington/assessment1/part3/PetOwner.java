@@ -16,6 +16,9 @@ public class PetOwner {
     public PetOwner(String name, Pet... pets) {
         this.name = name;
         this.pets = pets;
+        for (Pet p : pets
+             ) {p.setOwner(this);
+        }
     }
 
     /**
@@ -88,6 +91,6 @@ public class PetOwner {
      * @return array representation of animals owned by this PetOwner
      */
     public Pet[] getPets() {
-        return null;
+        return null ;
     }
 }
