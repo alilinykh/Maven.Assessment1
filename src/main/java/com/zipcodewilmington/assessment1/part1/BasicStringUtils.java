@@ -9,7 +9,7 @@ public class BasicStringUtils {
      * @return string with identical content, and the first character capitalized
      */
     public static String camelCase(String str) {
-        return null;
+        return str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase() ;
     }
 
     /**
@@ -17,7 +17,8 @@ public class BasicStringUtils {
      * @return string with identical contents, in the reverse order
      */
     public static String reverse(String str) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder(str);
+        return stringBuilder.reverse().toString();
     }
 
     /**
@@ -25,7 +26,12 @@ public class BasicStringUtils {
      * @return string with identical contents, in reverse order, with first character capitalized
      */
     public static String reverseThenCamelCase(String str) {
-        return null;
+        String result = "";
+        StringBuilder stringBuilder = new StringBuilder(str);
+        result = stringBuilder.reverse().toString();
+        result = result.substring(0,1).toUpperCase() + result.substring(1).toLowerCase();
+
+        return result;
     }
 
 
@@ -34,7 +40,7 @@ public class BasicStringUtils {
      * @return string with identical contents excluding first and last character
      */
     public static String removeFirstAndLastCharacter(String str) {
-        return null;
+        return str.substring(1, str.length()-1);
     }
 
     /**
@@ -42,6 +48,20 @@ public class BasicStringUtils {
      * @return string with identical characters, each with opposite casing
      */
     public static String invertCasing(String str) {
-        return null;
+        String [] arrStr = str.split("");
+        String temp;
+        String result;
+        for (int i = 0; i < arrStr.length ; i++) {
+            if (arrStr[i].equals(arrStr[i].toLowerCase())) {
+                temp = arrStr[i].toUpperCase();
+                arrStr[i] = temp;
+            }
+            else {
+                temp = arrStr[i].toLowerCase();
+                arrStr[i] = temp;
+            }
+        }
+        result = String.join("",arrStr);
+        return result;
     }
 }
