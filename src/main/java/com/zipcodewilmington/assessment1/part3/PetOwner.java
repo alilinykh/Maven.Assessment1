@@ -6,6 +6,8 @@ package com.zipcodewilmington.assessment1.part3;
 public class PetOwner {
     private String name;
     private Object[] pets;
+    private int numPets = 0;
+    private Pet pet;
     /**
      * @param name name of the owner of the Pet
      * @param pets array of Pet object
@@ -20,6 +22,7 @@ public class PetOwner {
      */
     public void addPet(Pet pet) {
 
+        numPets++;
     }
 
     /**

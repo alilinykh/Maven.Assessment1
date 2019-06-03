@@ -6,15 +6,14 @@ package com.zipcodewilmington.assessment1.part3;
 public abstract class Pet implements Animal {
     private String name;
     private int age;
-    PetOwner owner = new PetOwner(null, null);
+    private PetOwner owner;
     /**
      * nullary constructor
      * by default, pet has age of 0; name of "";
      */
     public Pet() {
-        age = 0;
-        name = "";
-
+        this.age = 0;
+        this.name = "";
     }
 
     /**

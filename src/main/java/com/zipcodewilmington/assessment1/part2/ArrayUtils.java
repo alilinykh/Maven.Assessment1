@@ -33,17 +33,20 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        Integer counter = 0;
-        Integer [] arr = new Integer[objectArray.length];
-        for (Object o : objectArray
-             ) {
-            if (!o.equals(objectToRemove)) {
-                arr[counter] = (Integer) o;
-                counter++;
+
+        Integer remove = (Integer) objectToRemove;
+        ArrayList <Object> objects = new ArrayList<>();
+        for (int i = 0; i < objectArray.length ; i++) {
+            if (!objectArray[i].equals(remove)) {
+                objects.add(objectArray[i]);
             }
         }
+        Integer[] result = new Integer[objects.size()];
+        for (int i = 0; i < objects.size(); i++) {
+            result[i] = (Integer)objects.get(i);
+        }
 
-        return arr;
+        return result;
     }
 
     /**
@@ -52,7 +55,7 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-
+            Integer [] arr = new Integer[objectArray.length];
         return null;
     }
 
@@ -74,22 +77,17 @@ public class ArrayUtils {
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
 
-//        ArrayList <Object> merged = new ArrayList<>();
-//        for (int i = 0; i <objectArray.length ; i++) {
-//            merged.add(objectArray[i]);
-//        }
-//        for (int i = 0; i <objectArrayToAdd.length; i++) {
-//            merged.add(objectArray[i]);
-//        }
-//        Integer [] result = new Integer[merged.size()];
-//        for (int i = 0; i < merged.size() ; i++) {
-//            result[i] = (Integer) merged.get(i);
-//        }
-        Integer[] result = new Integer[objectArray.length + objectArrayToAdd.length];
+        ArrayList <Object> merged = new ArrayList<>();
         int counter = 0;
-        for (int i = 0; i < objectArray.length ; i++) {
-            result[counter] = (Integer) objectArray[i];
-            counter++;
+        for (int i = 0; i <objectArray.length ; i++) {
+            merged.add(objectArray[i]);
+        }
+        for (int i = 0; i <objectArrayToAdd.length; i++) {
+            merged.add(objectArrayToAdd[i]);
+        }
+        Integer [] result = new Integer[merged.size()];
+        for (int i = 0; i < merged.size() ; i++) {
+            result[i] = (Integer) merged.get(i);
         }
 
         return result;
