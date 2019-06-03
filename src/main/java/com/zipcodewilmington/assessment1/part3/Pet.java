@@ -21,14 +21,16 @@ public abstract class Pet implements Animal {
      */
     public Pet(String name) {
         this.name = name;
+        age = 0;
     }
-
 
     /**
      * @param age age of this pet
      */
     public Pet(int age) {
+
         this.age = age;
+        name = "";
     }
 
     /**
@@ -60,7 +62,6 @@ public abstract class Pet implements Animal {
      */
     public void setOwner(PetOwner newPetOwner) {
         this.owner = newPetOwner;
-
     }
 
     /**

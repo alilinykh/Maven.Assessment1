@@ -86,18 +86,18 @@ public class ArrayUtils {
      */
     public static Object getLeastCommon(Object[] objectArray) {
         Arrays.sort(objectArray);
-        int currCount = 0;
-        int minCount = 0;
+        int currCount = 1;
+        int minCount = 1;
         Object result = objectArray[0];
         for (int i = 1; i < objectArray.length ; i++) {
-            if(objectArray[i].equals(objectArray[i-1]))    {
+            if(!objectArray[i].equals(objectArray[i-1]))    {
                 currCount++;
             }else {
-                if (currCount > minCount) {
+                if (currCount < minCount) {
                     minCount = currCount;
-                    result = objectArray[i-1];
+                    result = objectArray[i];
                 }
-                currCount = 0;
+                currCount = 1;
             }
         }
         if (currCount < minCount) {
