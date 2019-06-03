@@ -70,14 +70,18 @@ public class PetOwner {
      * @return the number of Pet objects stored in this class
      */
     public Integer getNumberOfPets() {
-        return null;
+        int counter = 0;
+        for (int i = 0; i <pets.length ; i++) {
+            counter++;
+        }
+        return counter;
     }
 
     /**
      * @return the name property of the Pet
      */
     public String getName() {
-        return null;
+        return name;
     }
 
     /**
