@@ -17,10 +17,12 @@ public class Jumper {
             result = k;
         }
         else {
-            while (k > 0) {
+            ending = k%j;
+            while (k >= j) {
                 k -=j;
                 counter++;
             }
+        result = counter + ending;
         }
 
         return result;
